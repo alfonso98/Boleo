@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Boleo Administradora — Administración profesional de condominios en Ciudad de México. Cuotas, mantenimiento preventivo y atención a residentes.">
+  <title>Boleo Administradora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/89786f7d74.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header" id="site-header">
+    <nav class="nav-container">
+      <a href="#inicio" class="nav-logo" aria-label="Boleo Administradora — Inicio">
+        <img src="resources/SVG/logo-color.svg" alt="Boleo Administradora" class="logo-light" width="160" height="52">
+        <img src="resources/SVG/logo-white.svg" alt="Boleo Administradora" class="logo-dark" width="160" height="52">
+      </a>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+        <li><a href="#servicios" class="nav-link">Servicios</a></li>
+        <li><a href="#clientes" class="nav-link">Clientes</a></li>
+        <li><a href="#cotizador" class="nav-link">Cotizar</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema">
+          <i class="fas fa-moon" id="theme-icon"></i>
+        </button>
+        <a href="#cotizador" class="btn btn-primary nav-cta">Solicitar cotización</a>
+        <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ========== HERO ========== -->
+    <section id="inicio" class="hero">
+      <div class="hero-bg">
+        <img src="resources/JPEG/hero-bg.jpg" alt="Edificio residencial moderno administrado por Boleo" loading="eager">
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-content container">
+        <span class="hero-label">Administración de Condominios</span>
+        <h1 class="hero-title">Tu condominio funciona mejor cuando alguien realmente está a cargo.</h1>
+        <p class="hero-subtitle">Administración clara, mantenimiento preventivo y soluciones ágiles para condominios modernos.</p>
+        <div class="hero-actions">
+          <a href="#cotizador" class="btn btn-primary btn-lg">Solicita una consulta gratuita</a>
+          <a href="tel:+5215530707950" class="btn btn-ghost btn-lg">
+            <i class="fas fa-phone"></i> Habla con un administrador
+          </a>
+        </div>
+      </div>
+      <a href="#nosotros" class="hero-scroll" aria-label="Ir a Nosotros">
+        <i class="fas fa-chevron-down"></i>
+      </a>
+    </section>
+
+    <!-- ========== NOSOTROS ========== -->
+    <section id="nosotros" class="nosotros">
+      <div class="container nosotros-grid">
+        <div class="nosotros-content">
+          <span class="section-label">Nosotros</span>
+          <h2 class="section-title">Administración profesional sin complicaciones.</h2>
+          <p class="nosotros-body">Boleo ayuda a condominios y comunidades residenciales a operar de manera eficiente, transparente y organizada. Nos especializamos en la administración de cuotas, coordinación de proveedores, supervisión de mantenimiento y planificación de mejoras para elevar la calidad de vida de los residentes y proteger el valor de su patrimonio.</p>
+          <ul class="differentiators" role="list">
+            <li>
+              <i class="fas fa-check-circle" aria-hidden="true"></i>
+              <span>Atención cercana y oportuna</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle" aria-hidden="true"></i>
+              <span>Comunicación clara con residentes y comité</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle" aria-hidden="true"></i>
+              <span>Control transparente de gastos y cuotas</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle" aria-hidden="true"></i>
+              <span>Red de proveedores confiables</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle" aria-hidden="true"></i>
+              <span>Enfoque moderno y preventivo, no reactivo</span>
+            </li>
+          </ul>
+          <a href="#cotizador" class="btn btn-primary">Conoce nuestros planes</a>
+        </div>
+        <div class="nosotros-image">
+          <img src="resources/JPEG/nosotros-img.jpg" alt="Condominio moderno administrado por Boleo en Ciudad de México" loading="lazy">
+          <div class="nosotros-badge">
+            <span class="badge-num">+5</span>
+            <span class="badge-text">años de experiencia</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SERVICIOS ========== -->
+    <section id="servicios" class="servicios">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Servicios</span>
+          <h2 class="section-title">Todo lo que tu condominio necesita,<br>en un solo lugar.</h2>
+          <p class="section-subtitle">Soluciones integrales para la operación y mejora continua de comunidades residenciales.</p>
+        </div>
+        <div class="servicios-grid">
+          <div class="servicio-card">
+            <div class="servicio-icon" aria-hidden="true">
+              <i class="fas fa-file-invoice-dollar"></i>
+            </div>
+            <h3>Administración de Cuotas</h3>
+            <p>Seguimiento de pagos, reportes financieros y gestión transparente de los recursos del condominio.</p>
+          </div>
+          <div class="servicio-card">
+            <div class="servicio-icon" aria-hidden="true">
+              <i class="fas fa-handshake"></i>
+            </div>
+            <h3>Gestión de Proveedores</h3>
+            <p>Búsqueda, negociación y coordinación de servicios de limpieza, seguridad y mantenimiento.</p>
+          </div>
+          <div class="servicio-card">
+            <div class="servicio-icon" aria-hidden="true">
+              <i class="fas fa-tools"></i>
+            </div>
+            <h3>Mantenimiento Preventivo</h3>
+            <p>Planes periódicos para evitar fallas y reducir costos imprevistos en instalaciones comunes.</p>
+          </div>
+          <div class="servicio-card">
+            <div class="servicio-icon" aria-hidden="true">
+              <i class="fas fa-hard-hat"></i>
+            </div>
+            <h3>Renovación y Modernización</h3>
+            <p>Planeación y supervisión de proyectos de mejora para incrementar el valor de tu patrimonio.</p>
+          </div>
+          <div class="servicio-card">
+            <div class="servicio-icon" aria-hidden="true">
+              <i class="fas fa-comments"></i>
+            </div>
+            <h3>Atención a Residentes</h3>
+            <p>Canales claros de comunicación para la atención oportuna de reportes y solicitudes.</p>
+          </div>
+          <div class="servicio-card">
+            <div class="servicio-icon" aria-hidden="true">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>Supervisión Operativa</h3>
+            <p>Monitoreo continuo para garantizar el orden, la seguridad y el cumplimiento del reglamento.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CLIENTES ========== -->
+    <section id="clientes" class="clientes">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Clientes</span>
+          <h2 class="section-title">Lo que dicen nuestros clientes.</h2>
+          <p class="section-subtitle">Condominios que ya confían en Boleo para su administración diaria.</p>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-stars" aria-label="5 de 5 estrellas">
+              <i class="fas fa-star" aria-hidden="true"></i>
+              <i class="fas fa-star" aria-hidden="true"></i>
+              <i class="fas fa-star" aria-hidden="true"></i>
+              <i class="fas fa-star" aria-hidden="true"></i>
+              <i class="fas fa-star" aria-hidden="true"></i>
+            </div>
+            <p class="testimonial-text">"Boleo transformó por completo la organización de nuestro condominio. Los reportes financieros mensuales son claros y los residentes ya no tienen dudas sobre el uso de sus cuotas."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar" aria-hidden="true">MG</div>
+              <div class="testimonial-info">
+                <strong>María González</strong>
+                <span>Presidenta de Comité · Torres del Valle</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars" aria-label="5 de 5 estrellas">
+              <i class="fas fa-star" aria-hidden="true"></i>
+              <i class="fas fa-star" aria-hidden="true"></i>
+              <i class="fas fa-star" aria-hidden="true"></i>
+              <i class="fas fa-star" aria-hidden="true"></i>
+              <i class="fas fa-star" aria-hidden="true"></i>
+            </div>
+            <p class="testimonial-text">"La rapidez con la que resolvieron el problema del elevador fue sorprendente. Antes tardábamos semanas en coordinar una reparación, ahora en días está solucionado."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar" aria-hidden="true">CM</div>
+              <div class="testimonial-info">
+                <strong>Carlos Mendoza</strong>
+                <span>Vocal del Comité · Residencial Pedregal</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars" aria-label="5 de 5 estrellas">
+              <i class="fas fa-star" aria-hidden="true"></i>
+              <i class="fas fa-star" aria-hidden="true"></i>
+              <i class="fas fa-star" aria-hidden="true"></i>
+              <i class="fas fa-star" aria-hidden="true"></i>
+              <i class="fas fa-star" aria-hidden="true"></i>
+            </div>
+            <p class="testimonial-text">"Los proveedores que maneja Boleo son de excelente calidad. La comunicación con los residentes mejoró notablemente desde que empezamos a trabajar con ellos."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar" aria-hidden="true">AM</div>
+              <div class="testimonial-info">
+                <strong>Ana Martínez</strong>
+                <span>Presidenta de Comité · Condominio Las Palmas</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== COTIZADOR ========== -->
+    <section id="cotizador" class="cotizador">
+      <div class="container">
+        <div class="cotizador-wrapper">
+          <div class="cotizador-info">
+            <span class="section-label section-label--light">Cotizador</span>
+            <h2 class="section-title">¿Cuánto cuesta administrar tu condominio?</h2>
+            <p>Completa el formulario y uno de nuestros administradores te contactará con una propuesta personalizada, sin compromiso.</p>
+            <div class="cotizador-contacts">
+              <a href="tel:+5215530707950" class="contact-item">
+                <div class="contact-icon"><i class="fas fa-phone" aria-hidden="true"></i></div>
+                <span>+52 55 3070 7950</span>
+              </a>
+              <a href="mailto:contacto@boleo.com.mx" class="contact-item">
+                <div class="contact-icon"><i class="fas fa-envelope" aria-hidden="true"></i></div>
+                <span>contacto@boleo.com.mx</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="cotizador-form-wrapper">
+            <!-- Step indicators -->
+            <div class="form-steps" aria-label="Pasos del formulario">
+              <div class="step active" data-step="1">
+                <span class="step-num">1</span>
+                <span class="step-label">Tu condominio</span>
+              </div>
+              <div class="step-line"></div>
+              <div class="step" data-step="2">
+                <span class="step-num">2</span>
+                <span class="step-label">Servicios</span>
+              </div>
+              <div class="step-line"></div>
+              <div class="step" data-step="3">
+                <span class="step-num">3</span>
+                <span class="step-label">Contacto</span>
+              </div>
+            </div>
+
+            <form id="cotizador-form" novalidate>
+
+              <!-- Step 1: Condominio -->
+              <div class="form-step active" id="step-1">
+                <h3>Cuéntanos sobre tu condominio</h3>
+                <div class="form-group">
+                  <label for="departamentos">¿Cuántos departamentos tiene?</label>
+                  <select id="departamentos" name="departamentos" required>
+                    <option value="" disabled selected>Selecciona un rango</option>
+                    <option value="1-20">1 – 20 departamentos</option>
+                    <option value="21-50">21 – 50 departamentos</option>
+                    <option value="51-100">51 – 100 departamentos</option>
+                    <option value="100+">Más de 100 departamentos</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>¿Cuentan actualmente con servicio de seguridad?</label>
+                  <div class="radio-group" role="group" aria-label="Servicio de seguridad">
+                    <label class="radio-label">
+                      <input type="radio" name="seguridad" value="si" required>
+                      <span>Sí</span>
+                    </label>
+                    <label class="radio-label">
+                      <input type="radio" name="seguridad" value="no">
+                      <span>No</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>¿Cuentan actualmente con servicio de limpieza?</label>
+                  <div class="radio-group" role="group" aria-label="Servicio de limpieza">
+                    <label class="radio-label">
+                      <input type="radio" name="limpieza" value="si" required>
+                      <span>Sí</span>
+                    </label>
+                    <label class="radio-label">
+                      <input type="radio" name="limpieza" value="no">
+                      <span>No</span>
+                    </label>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-primary btn-next" data-next="2">
+                  Continuar <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                </button>
+              </div>
+
+              <!-- Step 2: Servicios -->
+              <div class="form-step" id="step-2">
+                <h3>¿Qué servicios te interesan?</h3>
+                <div class="form-group">
+                  <div class="checkbox-group" role="group" aria-label="Servicios de interés">
+                    <label class="checkbox-label">
+                      <input type="checkbox" name="servicios[]" value="cuotas">
+                      <span><i class="fas fa-file-invoice-dollar" aria-hidden="true"></i> Administración de Cuotas</span>
+                    </label>
+                    <label class="checkbox-label">
+                      <input type="checkbox" name="servicios[]" value="proveedores">
+                      <span><i class="fas fa-handshake" aria-hidden="true"></i> Gestión de Proveedores</span>
+                    </label>
+                    <label class="checkbox-label">
+                      <input type="checkbox" name="servicios[]" value="mantenimiento">
+                      <span><i class="fas fa-tools" aria-hidden="true"></i> Mantenimiento Preventivo</span>
+                    </label>
+                    <label class="checkbox-label">
+                      <input type="checkbox" name="servicios[]" value="renovacion">
+                      <span><i class="fas fa-hard-hat" aria-hidden="true"></i> Renovación y Modernización</span>
+                    </label>
+                    <label class="checkbox-label">
+                      <input type="checkbox" name="servicios[]" value="residentes">
+                      <span><i class="fas fa-comments" aria-hidden="true"></i> Atención a Residentes</span>
+                    </label>
+                    <label class="checkbox-label">
+                      <input type="checkbox" name="servicios[]" value="supervision">
+                      <span><i class="fas fa-shield-alt" aria-hidden="true"></i> Supervisión Operativa</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="form-actions">
+                  <button type="button" class="btn btn-outline btn-prev" data-prev="1">
+                    <i class="fas fa-arrow-left" aria-hidden="true"></i> Anterior
+                  </button>
+                  <button type="button" class="btn btn-primary btn-next" data-next="3">
+                    Continuar <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Step 3: Contacto -->
+              <div class="form-step" id="step-3">
+                <h3>Información de contacto</h3>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required autocomplete="name">
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" name="email" placeholder="tu@email.com" required autocomplete="email">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="telefono">Teléfono</label>
+                  <input type="tel" id="telefono" name="telefono" placeholder="+52 55 0000 0000" required autocomplete="tel">
+                </div>
+                <div class="form-group">
+                  <label for="mensaje">Mensaje adicional <span class="optional">(opcional)</span></label>
+                  <textarea id="mensaje" name="mensaje" rows="3" placeholder="¿Algo más que debamos saber sobre tu condominio?"></textarea>
+                </div>
+                <div class="form-actions">
+                  <button type="button" class="btn btn-outline btn-prev" data-prev="2">
+                    <i class="fas fa-arrow-left" aria-hidden="true"></i> Anterior
+                  </button>
+                  <button type="submit" class="btn btn-primary">
+                    Solicitar cotización <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Success -->
+              <div class="form-step" id="step-success">
+                <div class="form-success">
+                  <div class="success-icon" aria-hidden="true">
+                    <i class="fas fa-check-circle"></i>
+                  </div>
+                  <h3>¡Solicitud enviada!</h3>
+                  <p>Gracias por contactarnos. Un administrador de Boleo se comunicará contigo en las próximas 24 horas hábiles.</p>
+                  <a href="#inicio" class="btn btn-primary">Volver al inicio</a>
+                </div>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#inicio" aria-label="Boleo Administradora — Inicio">
+          <img src="resources/SVG/logo-white.svg" alt="Boleo Administradora" class="footer-logo" width="180" height="58" loading="lazy">
+        </a>
+        <p>Administración profesional de condominios y comunidades residenciales en Ciudad de México.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-link" aria-label="Instagram de Boleo" rel="noopener noreferrer" target="_blank">
+            <i class="fab fa-instagram" aria-hidden="true"></i>
+          </a>
+          <a href="#" class="social-link" aria-label="Facebook de Boleo" rel="noopener noreferrer" target="_blank">
+            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+          </a>
+          <a href="#" class="social-link" aria-label="LinkedIn de Boleo" rel="noopener noreferrer" target="_blank">
+            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+      <div class="footer-nav">
+        <h4>Navegación</h4>
+        <ul role="list">
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#clientes">Clientes</a></li>
+          <li><a href="#cotizador">Cotizar</a></li>
+        </ul>
+      </div>
+      <div class="footer-services">
+        <h4>Servicios</h4>
+        <ul role="list">
+          <li><a href="#servicios">Administración de Cuotas</a></li>
+          <li><a href="#servicios">Gestión de Proveedores</a></li>
+          <li><a href="#servicios">Mantenimiento Preventivo</a></li>
+          <li><a href="#servicios">Renovación y Modernización</a></li>
+          <li><a href="#servicios">Atención a Residentes</a></li>
+          <li><a href="#servicios">Supervisión Operativa</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contacto</h4>
+        <ul role="list">
+          <li>
+            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+            <span>Ciudad de México</span>
+          </li>
+          <li>
+            <i class="fas fa-phone" aria-hidden="true"></i>
+            <a href="tel:+5215530707950">+52 55 3070 7950</a>
+          </li>
+          <li>
+            <i class="fas fa-envelope" aria-hidden="true"></i>
+            <a href="mailto:contacto@boleo.com.mx">contacto@boleo.com.mx</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Boleo Administradora. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/5215530707950" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contáctanos por WhatsApp">
+    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+  </a>
+
+  <script src="main.js"></script>
+</body>
+</html>
