@@ -211,6 +211,17 @@
   styleSheet.textContent = shakeKeyframes;
   document.head.appendChild(styleSheet);
 
+  /* ── Nosotros image slideshow ─────────────────────────────── */
+  const slideshowImgs = document.querySelectorAll('.nosotros-slideshow img');
+  if (slideshowImgs.length > 1) {
+    let current = 0;
+    setInterval(function () {
+      slideshowImgs[current].classList.remove('active');
+      current = (current + 1) % slideshowImgs.length;
+      slideshowImgs[current].classList.add('active');
+    }, 15000);
+  }
+
   /* ── Remove error state on input ──────────────────────────── */
   form && form.querySelectorAll('input, select, textarea').forEach(function (field) {
     field.addEventListener('input', function () { this.classList.remove('error'); });
