@@ -1,0 +1,2 @@
+export const BOLEO_API_ENDPOINT = 'https://boleo-production-a081.up.railway.app/api/v1/solicitudes-cotizacion';
+export const BOLEO_API_TOKEN = '103a7c51a141ff92bde76aef45a312e6b9792cccc3847caad6f8e7ef456c349d';

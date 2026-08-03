@@ -95,7 +95,7 @@
               <span>Apego a la Ley de régimen de propiedad en condominio, reglamento interno y reglamento de la PROSOC</span>
             </li>
           </ul>
-          <a href="#cotizador" class="btn btn-primary">Conoce nuestros planes</a>
+          <a href="./RodolfoChiquillo" class="btn btn-primary">Conoce a nuestro Administrador Rodolfo Chiquillo</a>
         </div>
         <div class="nosotros-image">
           <div class="nosotros-slideshow">
@@ -310,42 +310,28 @@
               <!-- Step 1: Condominio -->
               <div class="form-step active" id="step-1">
                 <h3>Cuéntanos sobre tu condominio</h3>
-                <div class="form-group">
-                  <label for="departamentos">¿Cuántos departamentos tiene?</label>
-                  <select id="departamentos" name="departamentos" required>
-                    <option value="" disabled selected>Selecciona un rango</option>
-                    <option value="1-20">1 – 20 departamentos</option>
-                    <option value="21-50">21 – 50 departamentos</option>
-                    <option value="51-100">51 – 100 departamentos</option>
-                    <option value="100+">Más de 100 departamentos</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label>¿Cuentan actualmente con servicio de seguridad?</label>
-                  <div class="radio-group" role="group" aria-label="Servicio de seguridad">
-                    <label class="radio-label">
-                      <input type="radio" name="seguridad" value="si" required>
-                      <span>Sí</span>
-                    </label>
-                    <label class="radio-label">
-                      <input type="radio" name="seguridad" value="no">
-                      <span>No</span>
-                    </label>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="departamentos">¿Cuántos departamentos tiene?</label>
+                    <input type="number" id="departamentos" name="departamentos" min="1" step="1" placeholder="Ej. 24" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="presupuesto">Presupuesto mensual estimado</label>
+                    <select id="presupuesto" name="presupuesto" required>
+                      <option value="" disabled selected>Selecciona un rango</option>
+                      <option value="Menos de $5,000">Menos de $5,000</option>
+                      <option value="5,000 - 10,000">$5,000 – $10,000</option>
+                      <option value="10,000 - 20,000">$10,000 – $20,000</option>
+                      <option value="20,000 - 30,000">$20,000 – $30,000</option>
+                      <option value="Más de $30,000">Más de $30,000</option>
+                    </select>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label>¿Cuentan actualmente con servicio de limpieza?</label>
-                  <div class="radio-group" role="group" aria-label="Servicio de limpieza">
-                    <label class="radio-label">
-                      <input type="radio" name="limpieza" value="si" required>
-                      <span>Sí</span>
-                    </label>
-                    <label class="radio-label">
-                      <input type="radio" name="limpieza" value="no">
-                      <span>No</span>
-                    </label>
-                  </div>
+                  <label for="ubicacion">Dirección del condominio</label>
+                  <input type="text" id="ubicacion" name="ubicacion" placeholder="Calle, número, colonia" required autocomplete="street-address">
                 </div>
+
                 <button type="button" class="btn btn-primary btn-next" data-next="2">
                   Continuar <i class="fas fa-arrow-right" aria-hidden="true"></i>
                 </button>
@@ -355,33 +341,37 @@
               <div class="form-step" id="step-2">
                 <h3>¿Qué servicios te interesan?</h3>
                 <div class="form-group">
-                  <div class="checkbox-group" role="group" aria-label="Servicios de interés">
-                    <label class="checkbox-label">
-                      <input type="checkbox" name="servicios[]" value="cuotas">
-                      <span><i class="fas fa-file-invoice-dollar" aria-hidden="true"></i> Administración de Cuotas</span>
-                    </label>
-                    <label class="checkbox-label">
-                      <input type="checkbox" name="servicios[]" value="proveedores">
-                      <span><i class="fas fa-handshake" aria-hidden="true"></i> Gestión de Proveedores</span>
-                    </label>
-                    <label class="checkbox-label">
-                      <input type="checkbox" name="servicios[]" value="mantenimiento">
-                      <span><i class="fas fa-tools" aria-hidden="true"></i> Mantenimiento Preventivo</span>
-                    </label>
-                    <label class="checkbox-label">
-                      <input type="checkbox" name="servicios[]" value="renovacion">
-                      <span><i class="fas fa-hard-hat" aria-hidden="true"></i> Renovación y Modernización</span>
-                    </label>
-                    <label class="checkbox-label">
-                      <input type="checkbox" name="servicios[]" value="residentes">
-                      <span><i class="fas fa-comments" aria-hidden="true"></i> Atención a Residentes</span>
-                    </label>
-                    <label class="checkbox-label">
-                      <input type="checkbox" name="servicios[]" value="supervision">
-                      <span><i class="fas fa-shield-alt" aria-hidden="true"></i> Supervisión Operativa</span>
-                    </label>
+
+                  <div class="form-group">
+                    <label>¿Cuentan actualmente con administración?</label>
+                    <div class="radio-group" role="group" aria-label="Cuenta con administración">
+                      <label class="radio-label">
+                        <input type="radio" name="administracion" value="si" required>
+                        <span>Sí</span>
+                      </label>
+                      <label class="radio-label">
+                        <input type="radio" name="administracion" value="no">
+                        <span>No</span>
+                      </label>
+                    </div>
                   </div>
+
+                  <div class="form-group">
+                    <label>¿Su administración cuenta con certificación PROSOC?</label>
+                    <div class="radio-group" role="group" aria-label="Certificación PROSOC">
+                      <label class="radio-label">
+                        <input type="radio" name="prosoc" value="si" required>
+                        <span>Sí</span>
+                      </label>
+                      <label class="radio-label">
+                        <input type="radio" name="prosoc" value="no">
+                        <span>No</span>
+                      </label>
+                    </div>
+                  </div>
+
                 </div>
+                
                 <div class="form-actions">
                   <button type="button" class="btn btn-outline btn-prev" data-prev="1">
                     <i class="fas fa-arrow-left" aria-hidden="true"></i> Anterior
@@ -413,12 +403,17 @@
                   <label for="mensaje">Mensaje adicional <span class="optional">(opcional)</span></label>
                   <textarea id="mensaje" name="mensaje" rows="3" placeholder="¿Algo más que debamos saber sobre tu condominio?"></textarea>
                 </div>
+                <p class="form-submit-error" id="form-submit-error" role="alert" hidden>
+                  <i class="fas fa-triangle-exclamation" aria-hidden="true"></i>
+                  <span>Ocurrió un error al enviar tu solicitud. Intenta de nuevo.</span>
+                </p>
                 <div class="form-actions">
                   <button type="button" class="btn btn-outline btn-prev" data-prev="2">
                     <i class="fas fa-arrow-left" aria-hidden="true"></i> Anterior
                   </button>
-                  <button type="submit" class="btn btn-primary">
-                    Solicitar cotización <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                  <button type="submit" class="btn btn-primary" id="cotizador-submit">
+                    <span class="btn-label">Solicitar cotización</span>
+                    <i class="fas fa-paper-plane" aria-hidden="true"></i>
                   </button>
                 </div>
               </div>
@@ -514,53 +509,6 @@
     <i class="fab fa-whatsapp" aria-hidden="true"></i>
   </a>
 
-  <script src="main.js"></script>
+  <script type="module" src="main.js"></script>
 </body>
 </html>
-
-
-<!-- En la parte de seleccionar consulta gratuita, te manda en una primera vista a mis datos de contacto ¿ese mail ya está funcionando? No sé, no recuerdo que este dentro del paquete y no creo que deban de estar ahí mi número de celular ya que es un primer acercamiento y por tema de seguridad  no lo podría en un primer escenario
-
-Creo que en front inicial debe de haber las siguientes opciones: 
-Solictar una consulta gratuita con Administrador Profesional (solo necesito, nombre completo, número de mail y número de celular y breve descripción de la duda)
-Solicitar cotización (solo necesito, nombre completo, número de mail, número de celular, número de departamentos y dirección del condominio). 
-
-
-
-por ejemplo cuantos condominios tenemos que son 8 la visión, misión y valores.. etc. 
-------------------------------------------------------------------------------------------------------------------------------
-
-*Administración de Cuotas*
-Damos de alta la administración en tu condominio. Proveemos reportes semanales de las cuotas pendientes por cubrir por departamento.
-
-*Conciliación de Conflictos*
-Conciliaciamos conflictos entre residentes y recuperamos cuotas de mantenimiento. Contamos con experiencia en juicios ejecutivos civiles.
-
-*Gestión de Proveedores*
-Reforzamos consignas con vigilancia y realizamos planes de trabajo con los equipos de limpieza.
-
-*Atención a Residentes*
-Atención personalizada y entrega de recibos de mantenimiento. 
-
-*Mantenimiento Preventivo*
-Planeamos mantenimiento preventivo y planes de ahorro de gastos para no subir cuotas de mantenimiento.
-
-*Supervisión Operativa*
-Realizamos asambleas ordinarias y extraordinarias con reportes mensuales de gastos y atención a emergencias.
-
--------------------------------------------------------------------------------------------------------------------------------
-Servicios agregar las siguientes ideas: 
-[X] Te asesoramos para dar de alta tu administración en tu condominio.
-[X] Realización de Asambleas Ordinarias y extraordinarias. 
-[X] Mandar de forma semanal a los dueños de los departamentos una relación de las cuotas pendientes por cubrir por departamento. 
-[X] Atención personalizada. 
-[X] Entrega de recibos de mantenimiento. 
-[X] Planes para ahorrar gastos y no subir cuotas de mantenimiento.
-[X] Reporte mensuales de gastos realizados durante el mes corriente.
-[X] Planeación de mantenimientos preventivos.
-[X] Atención a emergencias. 
-[X] Reforzamiento de consignas con vigilancia.
-[X] Realizar planes de trabajo con limpieza. 
-[X] Experiencia en juicios ejecutivos civiles para la recuperación de cuotas de mantenimiento por la vía legal. 
-[X] Propuestas para recuperar cuotas de mantenimiento. 
-[X] Conciliaciones por conflictos presentados entre Residentes del condominio. -->

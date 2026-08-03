@@ -2,6 +2,8 @@
    BOLEO ADMINISTRADORA — main.js
    ============================================================ */
 
+import { BOLEO_API_ENDPOINT, BOLEO_API_TOKEN } from './constants.js';
+
 (function () {
   'use strict';
 
@@ -115,18 +117,33 @@
 
     if (stepNum === 1) {
       const dept = step.querySelector('#departamentos');
-      const segRadios = step.querySelectorAll('input[name="seguridad"]');
-      const limRadios = step.querySelectorAll('input[name="limpieza"]');
+      const presupuesto = step.querySelector('#presupuesto');
+      const ubicacion = step.querySelector('#ubicacion');
 
-      if (!dept.value) {
-        dept.classList.add('error');
+      [dept, presupuesto].forEach(function (field) {
+        if (!field.value) {
+          field.classList.add('error');
+          valid = false;
+        } else {
+          field.classList.remove('error');
+        }
+      });
+
+      if (!ubicacion.value.trim()) {
+        ubicacion.classList.add('error');
         valid = false;
       } else {
-        dept.classList.remove('error');
+        ubicacion.classList.remove('error');
       }
 
-      if (![...segRadios].some(r => r.checked)) valid = false;
-      if (![...limRadios].some(r => r.checked)) valid = false;
+    }
+
+    if (stepNum === 2) {
+      const adminRadios = step.querySelectorAll('input[name="administracion"]');
+      const prosocRadios = step.querySelectorAll('input[name="prosoc"]');
+
+      if (![...adminRadios].some(r => r.checked)) valid = false;
+      if (![...prosocRadios].some(r => r.checked)) valid = false;
     }
 
     if (stepNum === 3) {
@@ -171,14 +188,91 @@
     });
   });
 
+  const COTIZADOR_ENDPOINT = BOLEO_API_ENDPOINT;
+  const COTIZADOR_TOKEN    = BOLEO_API_TOKEN;
+  const submitBtn  = document.getElementById('cotizador-submit');
+  const submitError = document.getElementById('form-submit-error');
+
+  function pad2(n) { return String(n).padStart(2, '0'); }
+
+  function nowForApi() {
+    const d = new Date();
+    return d.getFullYear() + '-' + pad2(d.getMonth() + 1) + '-' + pad2(d.getDate()) +
+      ' ' + pad2(d.getHours()) + ':' + pad2(d.getMinutes());
+  }
+
+  function buildCotizadorPayload() {
+    const data = new FormData(form);
+
+    const extras = [];
+    extras.push('Servicio de seguridad actual: ' + (data.get('seguridad') === 'si' ? 'Sí' : 'No'));
+    extras.push('Servicio de limpieza actual: ' + (data.get('limpieza') === 'si' ? 'Sí' : 'No'));
+    const servicios = data.getAll('servicios[]');
+    if (servicios.length) extras.push('Servicios de interés: ' + servicios.join(', '));
+    const mensaje = (data.get('mensaje') || '').trim();
+    if (mensaje) extras.push(mensaje);
+
+    return {
+      nombre_cliente: data.get('nombre'),
+      correo_cliente: data.get('email'),
+      telefono_cliente: data.get('telefono'),
+      ubicacion_inmueble: data.get('ubicacion'),
+      presupuesto_mensual: data.get('presupuesto'),
+      cuenta_con_administracion: data.get('administracion') === 'si',
+      cuenta_con_certificacion_prosoc: data.get('prosoc') === 'si',
+      cantidad_departamentos: data.get('departamentos'),
+      comentario: extras.join(' | '),
+      fecha_consulta: nowForApi(),
+      source: 'Website Form',
+    };
+  }
+
+  function setSubmitting(isSubmitting) {
+    if (!submitBtn) return;
+    submitBtn.disabled = isSubmitting;
+    submitBtn.classList.toggle('is-loading', isSubmitting);
+    const label = submitBtn.querySelector('.btn-label');
+    if (label) label.textContent = isSubmitting ? 'Enviando…' : 'Solicitar cotización';
+  }
+
   form && form.addEventListener('submit', function (e) {
     e.preventDefault();
     if (!validateStep(3)) { shakeForm(); return; }
-    stepEls.forEach(function (el) { el.classList.remove('active'); });
-    const success = document.getElementById('step-success');
-    if (success) success.classList.add('active');
-    document.querySelector('.form-steps') && (document.querySelector('.form-steps').style.display = 'none');
-    scrollToForm();
+
+    submitError && submitError.setAttribute('hidden', '');
+    setSubmitting(true);
+
+    console.info('Cotizador payload:', buildCotizadorPayload());
+
+    fetch(COTIZADOR_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': 'Bearer ' + COTIZADOR_TOKEN,
+      },
+      body: JSON.stringify(buildCotizadorPayload()),
+    })
+      .then(function (res) {
+        if (!res.ok) throw new Error('Request failed with status ' + res.status);
+        return res.json().catch(function () { return null; });
+      })
+      .then(function () {
+        stepEls.forEach(function (el) { el.classList.remove('active'); });
+        const success = document.getElementById('step-success');
+        if (success) success.classList.add('active');
+        document.querySelector('.form-steps') && (document.querySelector('.form-steps').style.display = 'none');
+        scrollToForm();
+      })
+      .catch(function (err) {
+        console.error('Cotizador submit failed:', err);
+        submitError && submitError.removeAttribute('hidden');
+        shakeForm();
+      })
+      .finally(function () {
+        setSubmitting(false);
+      });
+
   });
 
   function scrollToForm() {

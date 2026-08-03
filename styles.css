@@ -779,6 +779,7 @@ label {
 input[type="text"],
 input[type="email"],
 input[type="tel"],
+input[type="number"],
 select,
 textarea {
   width: 100%;
@@ -875,6 +876,28 @@ textarea { resize: vertical; min-height: 90px; }
 }
 .form-actions .btn-primary { flex: 1; justify-content: center; }
 .form-actions .btn-outline  { flex-shrink: 0; }
+
+.form-submit-error {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  background: rgba(220, 53, 69, 0.1);
+  color: #dc3545;
+  font-size: 0.875rem;
+}
+.form-submit-error[hidden] { display: none; }
+
+.btn-primary:disabled,
+.btn-primary.is-loading {
+  opacity: 0.75;
+  cursor: not-allowed;
+  transform: none !important;
+}
+.btn-primary.is-loading i { animation: btn-spin 0.8s linear infinite; }
+@keyframes btn-spin { to { transform: rotate(360deg); } }
 
 /* Success state */
 .form-success {
