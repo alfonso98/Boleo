@@ -316,6 +316,56 @@ import { BOLEO_API_ENDPOINT, BOLEO_API_TOKEN } from './constants.js';
     }, 15000);
   }
 
+  /* ── Testimonial "read more" dialog ───────────────────────── */
+  const TESTIMONIAL_TRUNCATE_LENGTH = 180;
+  const testimonialDialog = document.getElementById('testimonial-dialog');
+
+  if (testimonialDialog) {
+    const dialogStars  = document.getElementById('testimonial-dialog-stars');
+    const dialogText   = document.getElementById('testimonial-dialog-text');
+    const dialogAvatar = document.getElementById('testimonial-dialog-avatar');
+    const dialogName   = document.getElementById('testimonial-dialog-name');
+    const dialogRole   = document.getElementById('testimonial-dialog-role');
+    const dialogClose  = document.getElementById('testimonial-dialog-close');
+
+    document.querySelectorAll('.testimonial-card').forEach(function (card) {
+      const textEl = card.querySelector('.testimonial-text');
+      if (!textEl) return;
+
+      const fullText = textEl.textContent.trim();
+      if (fullText.length <= TESTIMONIAL_TRUNCATE_LENGTH) return;
+
+      textEl.classList.add('is-truncated');
+
+      const readMoreBtn = document.createElement('button');
+      readMoreBtn.type = 'button';
+      readMoreBtn.className = 'testimonial-read-more';
+      readMoreBtn.textContent = 'Leer más';
+      textEl.insertAdjacentElement('afterend', readMoreBtn);
+
+      readMoreBtn.addEventListener('click', function () {
+        const starsCount = card.querySelectorAll('.testimonial-stars .fa-star').length;
+        dialogStars.innerHTML = '<i class="fas fa-star" aria-hidden="true"></i>'.repeat(starsCount);
+        dialogText.textContent = fullText;
+        dialogAvatar.textContent = card.querySelector('.testimonial-avatar').textContent;
+        dialogName.textContent = card.querySelector('.testimonial-info strong').textContent;
+        dialogRole.textContent = card.querySelector('.testimonial-info span').textContent;
+        testimonialDialog.showModal();
+      });
+    });
+
+    dialogClose && dialogClose.addEventListener('click', function () {
+      testimonialDialog.close();
+    });
+
+    testimonialDialog.addEventListener('click', function (e) {
+      const rect = testimonialDialog.getBoundingClientRect();
+      const inside = e.clientX >= rect.left && e.clientX <= rect.right &&
+        e.clientY >= rect.top && e.clientY <= rect.bottom;
+      if (!inside) testimonialDialog.close();
+    });
+  }
+
   /* ── Remove error state on input ──────────────────────────── */
   form && form.querySelectorAll('input, select, textarea').forEach(function (field) {
     field.addEventListener('input', function () { this.classList.remove('error'); });
