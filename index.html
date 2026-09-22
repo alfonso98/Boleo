@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Boleo Administradora — Administración profesional de condominios en Ciudad de México. Cuotas, mantenimiento preventivo y atención a residentes.">
   <title>Boleo Administradora</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/89786f7d74.js" crossorigin="anonymous"></script>
+  <link rel="preload" href="resources/fonts/dmsans-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="resources/fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="icons.css">
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" type="image/x-icon" href="resources//PNG/Logo_Boleo_Verde.png">
+  <link rel="modulepreload" href="constants.js">
+  <link rel="icon" type="image/png" href="resources/PNG/favicon-64.png">
 </head>
 <body>
 
@@ -18,8 +18,8 @@
   <header class="site-header" id="site-header">
     <nav class="nav-container">
       <a href="#inicio" class="nav-logo" aria-label="Boleo Administradora — Inicio">
-        <img src="resources/PNG/Logo_Boleo_Verde.png" alt="Boleo Administradora" class="logo-light">
-        <img src="resources/PNG/Logo_Boleo_Blanco.png" alt="Boleo Administradora" class="logo-dark">
+        <img src="resources/WEBP/logo-verde-320.webp" alt="Boleo Administradora" class="logo-light" width="90" height="90">
+        <img src="resources/WEBP/logo-blanco-320.webp" alt="Boleo Administradora" class="logo-dark" width="90" height="90">
       </a>
       <ul class="nav-links" id="nav-links" role="list">
         <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
@@ -47,7 +47,10 @@
     <!-- ========== HERO ========== -->
     <section id="inicio" class="hero">
       <div class="hero-bg">
-        <img src="resources/JPEG/Boleo_exterior_de_un_edificio_administrado.jpeg" alt="Edificio residencial moderno administrado por Boleo" loading="eager">
+        <img src="resources/WEBP/exterior-administrado-800.webp"
+             srcset="resources/WEBP/exterior-administrado-480.webp 480w, resources/WEBP/exterior-administrado-800.webp 800w, resources/WEBP/exterior-administrado-1200.webp 1200w, resources/WEBP/exterior-administrado-1458.webp 1458w"
+             sizes="100vw" width="1458" height="1228" fetchpriority="high"
+             alt="Edificio residencial moderno administrado por Boleo">
         <div class="hero-overlay"></div>
       </div>
       <div class="hero-content container">
@@ -101,9 +104,19 @@
         </div>
         <div class="nosotros-image">
           <div class="nosotros-slideshow">
-            <img src="resources/JPEG/Boleo_puerta_de_entrada_a_edificio.jpeg" alt="Condominio moderno administrado por Boleo en Ciudad de México" loading="eager" class="active">
-            <img src="resources/JPEG/Boleo_exterior_de_un_edificio.jpeg" alt="Edificio residencial moderno administrado por Boleo" loading="lazy">
-            <img src="resources/JPEG/Boleo_servicio_de_administracion.jpeg" alt="Condominio moderno administrado por Boleo en Ciudad de México" loading="lazy">
+            <!-- Slides 2+ carry data-* attributes only; main.js loads them right before they're shown -->
+            <img src="resources/WEBP/puerta-entrada-800.webp"
+                 srcset="resources/WEBP/puerta-entrada-480.webp 480w, resources/WEBP/puerta-entrada-800.webp 800w, resources/WEBP/puerta-entrada-1200.webp 1200w"
+                 sizes="(max-width: 1023px) calc(100vw - 48px), 520px" width="1511" height="1066" loading="lazy"
+                 alt="Condominio moderno administrado por Boleo en Ciudad de México" class="active">
+            <img data-src="resources/WEBP/exterior-edificio-800.webp"
+                 data-srcset="resources/WEBP/exterior-edificio-480.webp 480w, resources/WEBP/exterior-edificio-800.webp 800w, resources/WEBP/exterior-edificio-939.webp 939w"
+                 sizes="(max-width: 1023px) calc(100vw - 48px), 520px" width="939" height="1418"
+                 alt="Edificio residencial moderno administrado por Boleo">
+            <img data-src="resources/WEBP/servicio-administracion-800.webp"
+                 data-srcset="resources/WEBP/servicio-administracion-480.webp 480w, resources/WEBP/servicio-administracion-800.webp 800w, resources/WEBP/servicio-administracion-900.webp 900w"
+                 sizes="(max-width: 1023px) calc(100vw - 48px), 520px" width="900" height="1600"
+                 alt="Condominio moderno administrado por Boleo en Ciudad de México">
           </div>
           <div class="nosotros-badge">
             <span class="badge-num">+8</span>
@@ -123,7 +136,8 @@
         </div>
         <div class="servicios-grid">
 
-          <div class="servicio-card" style="--card-bg: url('resources/JPEG/Boleo_exterior_de_un_edificio.jpeg');">
+          <div class="servicio-card">
+            <img class="servicio-bg" src="resources/WEBP/exterior-edificio-800.webp" srcset="resources/WEBP/exterior-edificio-480.webp 480w, resources/WEBP/exterior-edificio-800.webp 800w" sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 1023px) 50vw, 360px" width="800" height="1208" alt="" loading="lazy" decoding="async">
             <div class="servicio-icon" aria-hidden="true">
               <i class="fas fa-file-invoice-dollar"></i>
             </div>
@@ -131,35 +145,40 @@
             <p>Damos de alta la administración en tu condominio. Proveemos reportes semanales de las cuotas pendientes por cubrir por departamento.</p>
           </div>
 
-          <div class="servicio-card" style="--card-bg: url('resources/JPEG/Boleo_servicio_de_limpieza.jpeg');">
+          <div class="servicio-card">
+            <img class="servicio-bg" src="resources/WEBP/servicio-limpieza-800.webp" srcset="resources/WEBP/servicio-limpieza-480.webp 480w, resources/WEBP/servicio-limpieza-800.webp 800w" sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 1023px) 50vw, 360px" width="800" height="533" alt="" loading="lazy" decoding="async">
             <div class="servicio-icon" aria-hidden="true">
               <i class="fas fa-handshake"></i>
             </div>
             <h3>Gestión de Proveedores</h3>
             <p>Reforzamos consignas con vigilancia y realizamos planes de trabajo con los equipos de limpieza.</p>
           </div>
-          <div class="servicio-card" style="--card-bg: url('resources/JPEG/Boleo_servicio_electricista.jpeg');">
+          <div class="servicio-card">
+            <img class="servicio-bg" src="resources/WEBP/servicio-electricista-800.webp" srcset="resources/WEBP/servicio-electricista-480.webp 480w, resources/WEBP/servicio-electricista-800.webp 800w" sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 1023px) 50vw, 360px" width="800" height="1067" alt="" loading="lazy" decoding="async">
             <div class="servicio-icon" aria-hidden="true">
               <i class="fas fa-hard-hat"></i>
             </div>
             <h3>Mantenimiento Preventivo</h3>
             <p>Planeamos mantenimiento preventivo y planes de ahorro de gastos para no subir cuotas de mantenimiento.</p>
           </div>
-          <div class="servicio-card" style="--card-bg: url('resources/JPEG/Boleo_servicio_juntas_de_vecinos.jpeg');">
+          <div class="servicio-card">
+            <img class="servicio-bg" src="resources/WEBP/servicio-juntas-800.webp" srcset="resources/WEBP/servicio-juntas-480.webp 480w, resources/WEBP/servicio-juntas-800.webp 800w" sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 1023px) 50vw, 360px" width="800" height="450" alt="" loading="lazy" decoding="async">
             <div class="servicio-icon" aria-hidden="true">
               <i class="fas fa-gavel"></i>
             </div>
             <h3>Conciliación de Conflictos</h3>
             <p>Conciliaciamos conflictos entre residentes y recuperamos cuotas de mantenimiento. Contamos con experiencia en juicios ejecutivos civiles.</p>
           </div>
-          <div class="servicio-card" style="--card-bg: url('resources/JPEG/Boleo_servicio_de_administracion.jpeg');">
+          <div class="servicio-card">
+            <img class="servicio-bg" src="resources/WEBP/servicio-administracion-800.webp" srcset="resources/WEBP/servicio-administracion-480.webp 480w, resources/WEBP/servicio-administracion-800.webp 800w" sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 1023px) 50vw, 360px" width="800" height="1422" alt="" loading="lazy" decoding="async">
             <div class="servicio-icon" aria-hidden="true">
               <i class="fas fa-comments"></i>
             </div>
             <h3>Atención a Residentes</h3>
             <p>Atención personalizada y entrega de recibos de mantenimiento.</p>
           </div>
-          <div class="servicio-card" style="--card-bg: url('resources/JPEG/Boleo_exterior_de_un_edificio_administrado.jpeg');">
+          <div class="servicio-card">
+            <img class="servicio-bg" src="resources/WEBP/exterior-administrado-800.webp" srcset="resources/WEBP/exterior-administrado-480.webp 480w, resources/WEBP/exterior-administrado-800.webp 800w" sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 1023px) 50vw, 360px" width="800" height="674" alt="" loading="lazy" decoding="async">
             <div class="servicio-icon" aria-hidden="true">
               <i class="fas fa-shield-alt"></i>
             </div>
@@ -473,7 +492,10 @@ Quedo de usted."</p>
           </div>
 
           <div class="mapa-container-image">
-            <img src="resources/PNG/mapa_CDMX.png" alt="Mapa de clientes de Boleo Administradora en Ciudad de México" loading="lazy">
+            <img src="resources/WEBP/mapa-cdmx-800.webp"
+                 srcset="resources/WEBP/mapa-cdmx-540.webp 540w, resources/WEBP/mapa-cdmx-800.webp 800w, resources/WEBP/mapa-cdmx-1080.webp 1080w"
+                 sizes="48vh" width="1080" height="1350" loading="lazy" decoding="async"
+                 alt="Mapa de clientes de Boleo Administradora en Ciudad de México">
           </div>
           
         </div>
@@ -657,7 +679,7 @@ Quedo de usted."</p>
     <div class="container footer-grid">
       <div class="footer-brand">
         <a href="#inicio" aria-label="Boleo Administradora — Inicio">
-          <img src="resources/PNG/Logo_Boleo_Blanco.png" alt="Boleo Administradora" class="footer-logo" loading="lazy">
+          <img src="resources/WEBP/logo-blanco-320.webp" alt="Boleo Administradora" class="footer-logo" width="150" height="150" loading="lazy">
         </a>
         <p>Administración profesional de condominios y comunidades residenciales en Ciudad de México.</p>
         <div class="footer-socials">

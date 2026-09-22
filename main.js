@@ -309,10 +309,33 @@ import { BOLEO_API_ENDPOINT, BOLEO_API_TOKEN } from './constants.js';
   const slideshowImgs = document.querySelectorAll('.nosotros-slideshow img');
   if (slideshowImgs.length > 1) {
     let current = 0;
+    let loadingSlide = false;
+
+    // Slides after the first only carry data-src/data-srcset, so they cost
+    // nothing on page load; each one is fetched right before it's shown.
     setInterval(function () {
-      slideshowImgs[current].classList.remove('active');
-      current = (current + 1) % slideshowImgs.length;
-      slideshowImgs[current].classList.add('active');
+      if (loadingSlide) return;
+
+      const nextIndex = (current + 1) % slideshowImgs.length;
+      const nextImg = slideshowImgs[nextIndex];
+
+      function show() {
+        slideshowImgs[current].classList.remove('active');
+        current = nextIndex;
+        nextImg.classList.add('active');
+      }
+
+      if (!nextImg.dataset.src) { show(); return; }
+
+      loadingSlide = true;
+      nextImg.onload = function () {
+        delete nextImg.dataset.src;
+        loadingSlide = false;
+        show();
+      };
+      nextImg.onerror = function () { loadingSlide = false; };
+      if (nextImg.dataset.srcset) nextImg.srcset = nextImg.dataset.srcset;
+      nextImg.src = nextImg.dataset.src;
     }, 15000);
   }
 
