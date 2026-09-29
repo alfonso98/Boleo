@@ -9,6 +9,12 @@ import { BOLEO_API_ENDPOINT, BOLEO_API_TOKEN } from './constants.js';
 
   /* ── Theme Toggle ─────────────────────────────────────────── */
   const html       = document.documentElement;
+
+  // First frame is painted with below-the-fold sections skipped (see
+  // .defer-render in styles.css); lay them out for real right after it.
+  requestAnimationFrame(function () {
+    setTimeout(function () { html.classList.remove('defer-render'); }, 0);
+  });
   const themeBtn   = document.getElementById('theme-toggle');
   const themeIcon  = document.getElementById('theme-icon');
 

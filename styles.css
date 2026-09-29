@@ -119,6 +119,15 @@ input, select, textarea { font-family: inherit; font-size: 1rem; }
 
 section { padding: 96px 0; }
 
+/* Skip layout/paint of below-the-fold sections for the first paint only, so
+   slow phones show the hero sooner. main.js removes .defer-render right after
+   that first frame, so anchor scrolling uses real section heights. */
+.defer-render main > section:not(.hero),
+.defer-render .site-footer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
+
 /* ── Typography ──────────────────────────────────────────────── */
 h1, h2, h3, h4 {
   font-family: var(--font-main);
